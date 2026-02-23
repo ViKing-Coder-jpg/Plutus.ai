@@ -10,6 +10,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:5173",
     "http://127.0.0.1:3000",
+    "https://plutus-ai-snowy.vercel.app"
 ]
 
 app.add_middleware(
