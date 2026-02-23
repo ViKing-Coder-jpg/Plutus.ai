@@ -36,7 +36,7 @@ def predict_single_sample(data_dict, high_threshold=0.7,mid_threshold=0.4):
 
 @app.get('/')
 def root():
-    return {'Hello world'},kdfnbksd.kvndsal/ .≤≈v. 
+    return {'Hello world'}
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
