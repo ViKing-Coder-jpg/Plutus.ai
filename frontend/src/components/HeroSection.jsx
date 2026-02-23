@@ -14,7 +14,7 @@ function DashboardMockup() {
             <div
                 className="absolute -inset-8 rounded-3xl pointer-events-none"
                 style={{
-                    background: 'radial-gradient(ellipse at 60% 50%, rgba(99,102,241,0.22) 0%, rgba(59,130,246,0.12) 45%, transparent 70%)',
+                    background: 'radial-gradient(ellipse at 60% 50%, rgba(109,40,217,0.14) 0%, rgba(139,92,246,0.06) 45%, transparent 70%)',
                     filter: 'blur(24px)',
                 }}
             />
@@ -59,8 +59,8 @@ function DashboardMockup() {
                     <div className="bg-white/4 border border-white/6 rounded-xl p-3.5 transition-all duration-300 ease-out hover:bg-white/6">
                         <div className="text-xs text-slate-500 mb-1.5">Prob. of Default</div>
                         <div className="flex items-center gap-1.5">
-                            <TrendingUp className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                            <span className="text-blue-400 font-semibold text-sm">3.2%</span>
+                            <TrendingUp className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                            <span className="text-violet-400 font-semibold text-sm">3.2%</span>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ function DashboardMockup() {
                 <div>
                     <div className="flex justify-between text-xs text-slate-500 mb-2">
                         <span>300</span>
-                        <span className="text-blue-300 font-semibold">742 / 850</span>
+                        <span className="text-slate-300 font-semibold">742 / 850</span>
                         <span>850</span>
                     </div>
                     <div className="h-2 bg-white/6 rounded-full overflow-hidden">
@@ -77,8 +77,8 @@ function DashboardMockup() {
                             className="h-full rounded-full"
                             style={{
                                 width: '87%',
-                                background: 'linear-gradient(90deg, #3b82f6, #7c3aed, #a855f7)',
-                                boxShadow: '0 0 12px rgba(139,92,246,0.5)',
+                                background: 'linear-gradient(90deg, #6d28d9, #7c3aed, #a855f7)',
+                                boxShadow: '0 0 12px rgba(139,92,246,0.45)',
                                 transition: 'width 1.8s cubic-bezier(0.16,1,0.3,1)',
                             }}
                         />
@@ -108,7 +108,7 @@ function DashboardMockup() {
     );
 }
 
-export default function HeroSection() {
+export default function HeroSection({ onNavigate }) {
     return (
         <section
             id="home"
@@ -120,12 +120,12 @@ export default function HeroSection() {
                 style={{ background: 'linear-gradient(160deg, oklch(0.07 0.025 270) 0%, #050c1f 45%, oklch(0.06 0.02 265) 100%)' }}
             />
 
-            {/* Animated orb A — blue top-right */}
+            {/* Subtle ambient orb top-right */}
             <div
                 className="absolute w-[900px] h-[900px] rounded-full pointer-events-none animate-orb-a"
                 style={{
                     top: 0, right: 0,
-                    background: 'radial-gradient(ellipse, rgba(59,130,246,0.13) 0%, rgba(99,102,241,0.06) 50%, transparent 75%)',
+                    background: 'radial-gradient(ellipse, rgba(139,92,246,0.07) 0%, rgba(99,102,241,0.03) 50%, transparent 75%)',
                     filter: 'blur(10px)',
                 }}
             />
@@ -135,7 +135,7 @@ export default function HeroSection() {
                 className="absolute w-[700px] h-[700px] rounded-full pointer-events-none animate-orb-b"
                 style={{
                     bottom: 0, left: 0,
-                    background: 'radial-gradient(ellipse, rgba(124,58,237,0.13) 0%, rgba(139,92,246,0.05) 50%, transparent 75%)',
+                    background: 'radial-gradient(ellipse, rgba(124,58,237,0.08) 0%, rgba(139,92,246,0.03) 50%, transparent 75%)',
                     filter: 'blur(10px)',
                 }}
             />
@@ -158,14 +158,14 @@ export default function HeroSection() {
                     <div className="flex flex-col gap-8">
                         {/* Badge */}
                         <div className="animate-fade-up">
-                            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-blue-300 tracking-wide"
+                            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-violet-300 tracking-wide"
                                 style={{
-                                    background: 'rgba(59,130,246,0.1)',
-                                    border: '1px solid rgba(96,165,250,0.25)',
-                                    boxShadow: '0 0 20px rgba(59,130,246,0.1)',
+                                    background: 'rgba(109,40,217,0.12)',
+                                    border: '1px solid rgba(139,92,246,0.25)',
+                                    boxShadow: '0 0 20px rgba(109,40,217,0.08)',
                                 }}
                             >
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse inline-block" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse inline-block" />
                                 AI-Native Credit Intelligence
                             </span>
                         </div>
@@ -195,6 +195,7 @@ export default function HeroSection() {
                             </button>
                             <button
                                 id="view-demo-btn"
+                                onClick={onNavigate}
                                 className="btn-secondary flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm"
                             >
                                 <PlayCircle className="w-4 h-4" />
