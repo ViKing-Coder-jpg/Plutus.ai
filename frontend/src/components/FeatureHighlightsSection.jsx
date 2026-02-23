@@ -9,7 +9,8 @@ const features = [
         span: 'md:col-span-2',
         iconColor: 'text-blue-400',
         iconBg: 'bg-blue-500/10',
-        accent: 'from-blue-500/8 to-transparent',
+        hoverBg: 'rgba(59,130,246,0.08)',
+        delay: '0s',
     },
     {
         icon: BarChart3,
@@ -19,7 +20,8 @@ const features = [
         span: 'md:col-span-1',
         iconColor: 'text-violet-400',
         iconBg: 'bg-violet-500/10',
-        accent: 'from-violet-500/8 to-transparent',
+        hoverBg: 'rgba(124,58,237,0.08)',
+        delay: '0.15s',
     },
     {
         icon: Layers,
@@ -29,7 +31,8 @@ const features = [
         span: 'md:col-span-1',
         iconColor: 'text-cyan-400',
         iconBg: 'bg-cyan-500/10',
-        accent: 'from-cyan-500/8 to-transparent',
+        hoverBg: 'rgba(6,182,212,0.08)',
+        delay: '0.3s',
     },
     {
         icon: Gauge,
@@ -39,7 +42,8 @@ const features = [
         span: 'md:col-span-1',
         iconColor: 'text-amber-400',
         iconBg: 'bg-amber-500/10',
-        accent: 'from-amber-500/8 to-transparent',
+        hoverBg: 'rgba(245,158,11,0.08)',
+        delay: '0.45s',
     },
     {
         icon: ShieldCheck,
@@ -49,55 +53,82 @@ const features = [
         span: 'md:col-span-2',
         iconColor: 'text-emerald-400',
         iconBg: 'bg-emerald-500/10',
-        accent: 'from-emerald-500/8 to-transparent',
+        hoverBg: 'rgba(16,185,129,0.08)',
+        delay: '0.6s',
     },
 ];
 
 export default function FeatureHighlightsSection() {
     return (
-        <section className="py-28 relative overflow-hidden">
+        <section className="w-full py-32 relative overflow-hidden">
             {/* Background accents */}
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-700/6 blur-[120px] rounded-full" />
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-700/6 blur-[100px] rounded-full" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
+                style={{ background: 'rgba(124,58,237,0.07)' }}
+            />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none"
+                style={{ background: 'rgba(59,130,246,0.07)' }}
+            />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="relative z-10 w-full px-12 lg:px-20">
                 {/* Heading */}
-                <div className="text-center mb-16 space-y-3">
+                <div className="text-center mb-20 space-y-4">
                     <p className="text-xs font-semibold uppercase tracking-widest text-blue-400">
                         Under the Hood
                     </p>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-                        Engineered for{' '}
-                        <span className="gradient-text">Precision</span>
+                    <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
+                        Engineered for <span className="gradient-text">Precision</span>
                     </h2>
-                    <p className="text-slate-400 max-w-lg mx-auto">
+                    <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
                         A modular, production-grade pipeline built on proven statistical methods and modern ML engineering best practices.
                     </p>
                 </div>
 
-                {/* Feature grid */}
+                {/* Feature bento grid */}
                 <div className="grid md:grid-cols-3 gap-5">
-                    {features.map(({ icon: Icon, title, description, span, iconColor, iconBg, accent }, i) => (
+                    {features.map(({ icon: Icon, title, description, span, iconColor, iconBg, hoverBg, delay }) => (
                         <div
                             key={title}
-                            className={`${span} glass-card relative overflow-hidden p-7 flex flex-col gap-5 group cursor-default transition-all duration-400 hover:-translate-y-1 animate-fade-up`}
-                            style={{ animationDelay: `${i * 0.15}s` }}
+                            className={`${span} relative overflow-hidden p-8 flex flex-col gap-5 cursor-default animate-fade-up`}
+                            style={{
+                                animationDelay: delay,
+                                background: 'rgba(255,255,255,0.05)',
+                                backdropFilter: 'blur(24px)',
+                                WebkitBackdropFilter: 'blur(24px)',
+                                border: '1px solid rgba(255,255,255,0.10)',
+                                borderRadius: '1rem',
+                                transition: 'all 0.3s ease-out',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-5px)';
+                                e.currentTarget.style.boxShadow = `0 24px 60px ${hoverBg}, 0 0 0 1px rgba(255,255,255,0.14)`;
+                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.16)';
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.07)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = 'none';
+                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)';
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                            }}
                         >
-                            {/* Accent background */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                            {/* Hover radial accent */}
+                            <div
+                                className="absolute inset-0 rounded-2xl opacity-0 pointer-events-none"
+                                style={{
+                                    background: `radial-gradient(ellipse at top left, ${hoverBg}, transparent 70%)`,
+                                    transition: 'opacity 0.3s ease-out',
+                                }}
+                            />
 
                             <div className="relative z-10 flex flex-col gap-4">
-                                <div className={`w-11 h-11 rounded-xl ${iconBg} flex items-center justify-center shrink-0`}>
-                                    <Icon className={`w-5 h-5 ${iconColor}`} />
+                                <div className={`w-12 h-12 rounded-xl ${iconBg} flex items-center justify-center shrink-0`}>
+                                    <Icon className={`w-6 h-6 ${iconColor}`} />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-semibold text-base mb-2">{title}</h3>
+                                    <h3 className="text-white font-semibold text-lg mb-2">{title}</h3>
                                     <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
                                 </div>
                             </div>
-
-                            {/* Bottom gradient line on hover */}
-                            <div className={`absolute bottom-0 inset-x-0 h-px bg-gradient-to-r ${accent.replace('to-transparent', 'to-transparent')} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                         </div>
                     ))}
                 </div>

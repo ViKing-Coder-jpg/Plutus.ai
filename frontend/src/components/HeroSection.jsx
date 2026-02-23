@@ -1,4 +1,4 @@
-import { UploadCloud, PlayCircle, ShieldCheck, TrendingUp, AlertTriangle, CheckCircle } from 'lucide-react';
+import { UploadCloud, PlayCircle, ShieldCheck, TrendingUp, CheckCircle } from 'lucide-react';
 
 const riskFactors = [
     { label: 'Payment History', value: 'Excellent', color: 'text-emerald-400' },
@@ -9,39 +9,57 @@ const riskFactors = [
 
 function DashboardMockup() {
     return (
-        <div className="relative w-full max-w-sm lg:max-w-md animate-float">
-            {/* Ambient glow */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 via-violet-600/15 to-transparent rounded-3xl blur-2xl" />
+        <div className="relative w-full max-w-[480px] animate-float" style={{ animationDelay: '0.3s' }}>
+            {/* Multi-layer ambient glow */}
+            <div
+                className="absolute -inset-8 rounded-3xl pointer-events-none"
+                style={{
+                    background: 'radial-gradient(ellipse at 60% 50%, rgba(99,102,241,0.22) 0%, rgba(59,130,246,0.12) 45%, transparent 70%)',
+                    filter: 'blur(24px)',
+                }}
+            />
 
-            <div className="relative glass-card p-6 space-y-5 animate-count-up">
-                {/* Header */}
+            {/* Card */}
+            <div className="relative glass-card p-7 space-y-5 animate-count-up" style={{ animationDelay: '0.5s' }}>
+                {/* Header row */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="text-xs text-slate-400 font-medium tracking-wide uppercase">Risk Analysis</span>
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
+                        <span className="text-xs text-slate-400 font-medium tracking-widest uppercase">Risk Analysis</span>
                     </div>
-                    <span className="text-xs text-slate-500 bg-white/5 px-2 py-1 rounded-md">Live</span>
+                    <span className="text-xs text-slate-500 bg-white/5 border border-white/8 px-2.5 py-1 rounded-lg">Live</span>
                 </div>
 
-                {/* Score */}
+                {/* Big score */}
                 <div className="text-center py-4">
-                    <div className="text-[72px] font-bold leading-none gradient-text tabular-nums">742</div>
-                    <div className="text-slate-400 text-sm mt-1">Credit Risk Score</div>
+                    <div
+                        className="text-[84px] font-bold leading-none tabular-nums"
+                        style={{
+                            background: 'linear-gradient(135deg, #93c5fd 0%, #a78bfa 40%, #c084fc 70%, #818cf8 100%)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text',
+                            filter: 'drop-shadow(0 0 24px rgba(139,92,246,0.45))',
+                        }}
+                    >
+                        742
+                    </div>
+                    <div className="text-slate-400 text-sm mt-1 tracking-wide">Credit Risk Score</div>
                 </div>
 
                 {/* Category + PD */}
                 <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white/4 rounded-xl p-3">
-                        <div className="text-xs text-slate-500 mb-1">Risk Category</div>
+                    <div className="bg-white/4 border border-white/6 rounded-xl p-3.5 transition-all duration-300 ease-out hover:bg-white/6">
+                        <div className="text-xs text-slate-500 mb-1.5">Risk Category</div>
                         <div className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                            <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                             <span className="text-emerald-400 font-semibold text-sm">Low Risk</span>
                         </div>
                     </div>
-                    <div className="bg-white/4 rounded-xl p-3">
-                        <div className="text-xs text-slate-500 mb-1">Prob. of Default</div>
+                    <div className="bg-white/4 border border-white/6 rounded-xl p-3.5 transition-all duration-300 ease-out hover:bg-white/6">
+                        <div className="text-xs text-slate-500 mb-1.5">Prob. of Default</div>
                         <div className="flex items-center gap-1.5">
-                            <TrendingUp className="w-3.5 h-3.5 text-blue-400" />
+                            <TrendingUp className="w-3.5 h-3.5 text-blue-400 shrink-0" />
                             <span className="text-blue-400 font-semibold text-sm">3.2%</span>
                         </div>
                     </div>
@@ -49,23 +67,28 @@ function DashboardMockup() {
 
                 {/* Score bar */}
                 <div>
-                    <div className="flex justify-between text-xs text-slate-500 mb-1.5">
-                        <span>0</span>
-                        <span className="text-blue-400 font-medium">742 / 850</span>
+                    <div className="flex justify-between text-xs text-slate-500 mb-2">
+                        <span>300</span>
+                        <span className="text-blue-300 font-semibold">742 / 850</span>
                         <span>850</span>
                     </div>
-                    <div className="h-2 bg-white/8 rounded-full overflow-hidden">
+                    <div className="h-2 bg-white/6 rounded-full overflow-hidden">
                         <div
-                            className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-500"
-                            style={{ width: '87%', transition: 'width 1.5s ease' }}
+                            className="h-full rounded-full"
+                            style={{
+                                width: '87%',
+                                background: 'linear-gradient(90deg, #3b82f6, #7c3aed, #a855f7)',
+                                boxShadow: '0 0 12px rgba(139,92,246,0.5)',
+                                transition: 'width 1.8s cubic-bezier(0.16,1,0.3,1)',
+                            }}
                         />
                     </div>
                 </div>
 
                 {/* Key Risk Factors */}
                 <div>
-                    <div className="text-xs text-slate-500 uppercase tracking-wide mb-3">Key Risk Factors</div>
-                    <div className="space-y-2">
+                    <div className="text-xs text-slate-600 uppercase tracking-widest mb-3">Key Risk Factors</div>
+                    <div className="space-y-2.5">
                         {riskFactors.map((f) => (
                             <div key={f.label} className="flex items-center justify-between">
                                 <span className="text-xs text-slate-400">{f.label}</span>
@@ -75,8 +98,8 @@ function DashboardMockup() {
                     </div>
                 </div>
 
-                {/* Recommendation tag */}
-                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-3 py-2 flex items-center gap-2">
+                {/* Recommendation chip */}
+                <div className="bg-emerald-500/8 border border-emerald-400/20 rounded-xl px-4 py-3 flex items-center gap-2.5 transition-all duration-300 ease-out">
                     <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span className="text-xs text-emerald-300 font-medium">Recommended: Approve at standard rate</span>
                 </div>
@@ -89,78 +112,126 @@ export default function HeroSection() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center overflow-hidden pt-16"
+            className="relative w-full min-h-screen flex items-center overflow-hidden"
         >
-            {/* Background */}
-            <div className="absolute inset-0 noise-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.06_0.02_265)] via-[#050b1a] to-[oklch(0.06_0.02_265)]" />
-            <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-blue-600/8 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/4" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-violet-700/8 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/4" />
+            {/* Base background */}
+            <div
+                className="absolute inset-0 w-full h-full"
+                style={{ background: 'linear-gradient(160deg, oklch(0.07 0.025 270) 0%, #050c1f 45%, oklch(0.06 0.02 265) 100%)' }}
+            />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+            {/* Animated orb A — blue top-right */}
+            <div
+                className="absolute w-[900px] h-[900px] rounded-full pointer-events-none animate-orb-a"
+                style={{
+                    top: 0, right: 0,
+                    background: 'radial-gradient(ellipse, rgba(59,130,246,0.13) 0%, rgba(99,102,241,0.06) 50%, transparent 75%)',
+                    filter: 'blur(10px)',
+                }}
+            />
 
-                    {/* Left – copy */}
-                    <div className="space-y-8">
+            {/* Animated orb B — violet bottom-left */}
+            <div
+                className="absolute w-[700px] h-[700px] rounded-full pointer-events-none animate-orb-b"
+                style={{
+                    bottom: 0, left: 0,
+                    background: 'radial-gradient(ellipse, rgba(124,58,237,0.13) 0%, rgba(139,92,246,0.05) 50%, transparent 75%)',
+                    filter: 'blur(10px)',
+                }}
+            />
+
+            {/* Subtle dot grid */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage: 'radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px)',
+                    backgroundSize: '40px 40px',
+                    opacity: 0.12,
+                }}
+            />
+
+            {/* Content */}
+            <div className="relative z-10 w-full px-12 lg:px-20 pt-28 pb-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-10 items-center">
+
+                    {/* ── Left: copy ── */}
+                    <div className="flex flex-col gap-8">
                         {/* Badge */}
                         <div className="animate-fade-up">
-                            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-300 tracking-wide">
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-blue-300 tracking-wide"
+                                style={{
+                                    background: 'rgba(59,130,246,0.1)',
+                                    border: '1px solid rgba(96,165,250,0.25)',
+                                    boxShadow: '0 0 20px rgba(59,130,246,0.1)',
+                                }}
+                            >
+                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse inline-block" />
                                 AI-Native Credit Intelligence
                             </span>
                         </div>
 
-                        <h1 className="animate-fade-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white">
+                        {/* Heading — text-7xl on desktop */}
+                        <h1
+                            className="animate-fade-up delay-100 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white"
+                            style={{ lineHeight: 1.06 }}
+                        >
                             AI-Powered Credit Risk Intelligence for{' '}
-                            <span className="gradient-text">Smarter Lending</span>{' '}
+                            <span className="gradient-text-vivid whitespace-nowrap">Smarter Lending</span>{' '}
                             Decisions
                         </h1>
 
-                        <p className="animate-fade-up delay-200 text-lg text-slate-400 leading-relaxed max-w-lg">
+                        <p className="animate-fade-up delay-200 text-lg lg:text-xl text-slate-400 leading-relaxed max-w-[520px]">
                             Predict borrower risk, analyze financial behavior, and generate structured lending recommendations using advanced machine learning.
                         </p>
 
-                        <div className="animate-fade-up delay-300 flex flex-wrap gap-4">
+                        {/* CTAs */}
+                        <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-4">
                             <button
                                 id="upload-data-btn"
-                                className="btn-primary flex items-center gap-2.5 px-6 py-3 rounded-lg text-sm"
+                                className="btn-primary flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm"
                             >
                                 <UploadCloud className="w-4 h-4" />
                                 Upload Data
                             </button>
                             <button
                                 id="view-demo-btn"
-                                className="btn-secondary flex items-center gap-2.5 px-6 py-3 rounded-lg text-sm"
+                                className="btn-secondary flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm"
                             >
                                 <PlayCircle className="w-4 h-4" />
                                 View Demo
                             </button>
                         </div>
 
-                        {/* Social proof row */}
-                        <div className="animate-fade-up delay-400 flex items-center gap-6 pt-2">
+                        {/* Stats row */}
+                        <div className="animate-fade-up delay-400 flex items-center gap-0 pt-2">
                             {[
                                 { value: '99.1%', label: 'Model Accuracy' },
                                 { value: '0.94', label: 'ROC-AUC Score' },
                                 { value: '<200ms', label: 'Inference Time' },
-                            ].map((stat) => (
-                                <div key={stat.label}>
-                                    <div className="text-xl font-bold text-white">{stat.value}</div>
-                                    <div className="text-xs text-slate-500">{stat.label}</div>
+                            ].map((stat, i) => (
+                                <div
+                                    key={stat.label}
+                                    className={`flex-1 ${i > 0 ? 'border-l border-white/8 pl-6 ml-6' : ''}`}
+                                >
+                                    <div className="text-2xl font-bold text-white tracking-tight">{stat.value}</div>
+                                    <div className="text-xs text-slate-500 mt-0.5 tracking-wide">{stat.label}</div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Right – Dashboard mockup */}
-                    <div className="flex justify-center lg:justify-end animate-fade-in delay-400">
+                    {/* ── Right: Dashboard mockup ── */}
+                    <div className="flex justify-center lg:justify-end items-center animate-fade-in delay-300">
                         <DashboardMockup />
                     </div>
                 </div>
             </div>
 
-            {/* Bottom fade */}
-            <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[oklch(0.06_0.02_265)] to-transparent" />
+            {/* Bottom fade into next section */}
+            <div
+                className="absolute bottom-0 inset-x-0 h-40 pointer-events-none"
+                style={{ background: 'linear-gradient(to top, oklch(0.06 0.02 265) 0%, transparent 100%)' }}
+            />
         </section>
     );
 }

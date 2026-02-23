@@ -77,23 +77,28 @@ export default function TrustSection() {
                             }}
                         >
                             <div
-                                className="h-full rounded-2xl p-7 flex flex-col gap-5"
+                                className="h-full rounded-2xl p-8 flex flex-col gap-6"
                                 style={{
-                                    background: 'linear-gradient(135deg, oklch(0.09 0.02 265), oklch(0.07 0.02 265))',
-                                    transition: 'box-shadow 0.4s ease, transform 0.4s ease',
+                                    background: 'linear-gradient(150deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+                                    backdropFilter: 'blur(24px)',
+                                    WebkitBackdropFilter: 'blur(24px)',
+                                    border: '1px solid rgba(255,255,255,0.10)',
+                                    transition: 'all 0.3s ease-out',
                                 }}
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.boxShadow = `0 0 40px ${glowColor}, 0 0 80px ${glowColor.replace('0.22', '0.08')}`;
-                                    e.currentTarget.style.transform = 'translateY(-4px)';
+                                    e.currentTarget.style.boxShadow = `0 0 50px ${glowColor}, 0 0 100px ${glowColor.replace('0.22', '0.08')}`;
+                                    e.currentTarget.style.transform = 'translateY(-6px)';
+                                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.16)';
                                 }}
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.boxShadow = 'none';
                                     e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)';
                                 }}
                             >
                                 {/* Icon */}
-                                <div className={`w-12 h-12 rounded-xl ${iconBg} flex items-center justify-center`}>
-                                    <Icon className={`w-6 h-6 ${iconColor}`} />
+                                <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center`}>
+                                    <Icon className={`w-7 h-7 ${iconColor}`} />
                                 </div>
 
                                 {/* Text */}
