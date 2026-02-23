@@ -6,10 +6,10 @@ const cards = [
         title: 'Advanced ML Models',
         description:
             'Logistic regression, decision trees, and gradient boosting trained on real-world credit data with ROC-AUC optimization.',
-        glowColor: 'rgba(59, 130, 246, 0.22)',
-        iconColor: 'text-blue-400',
-        iconBg: 'bg-blue-500/10',
-        borderHighlight: 'rgba(96, 165, 250, 0.3)',
+        glowColor: 'rgba(139, 92, 246, 0.18)',
+        iconColor: 'text-slate-300',
+        iconBg: 'bg-white/8',
+        borderHighlight: 'rgba(255, 255, 255, 0.10)',
         delay: '0s',
     },
     {
@@ -52,7 +52,7 @@ export default function TrustSection() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Heading */}
                 <div className="text-center mb-16 space-y-4">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
                         Why Plutus
                     </p>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">

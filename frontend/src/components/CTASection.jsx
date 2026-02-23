@@ -1,11 +1,11 @@
 import { ArrowRight } from 'lucide-react';
 
-export default function CTASection() {
+export default function CTASection({ onNavigate }) {
     return (
         <section className="py-28 relative overflow-hidden">
             {/* Large ambient glow blob */}
             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[700px] h-[400px] bg-gradient-to-r from-blue-600/12 via-violet-700/15 to-blue-600/12 blur-[100px] rounded-full" />
+                <div className="w-[700px] h-[400px] bg-gradient-to-r from-violet-700/10 via-violet-800/12 to-violet-700/10 blur-[100px] rounded-full" />
             </div>
 
             {/* Grid pattern */}
@@ -39,6 +39,7 @@ export default function CTASection() {
                 <div className="animate-fade-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button
                         id="start-risk-analysis-btn"
+                        onClick={onNavigate}
                         className="btn-primary flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold animate-pulse-glow"
                     >
                         Start Risk Analysis

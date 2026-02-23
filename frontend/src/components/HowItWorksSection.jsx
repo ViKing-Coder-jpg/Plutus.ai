@@ -7,9 +7,9 @@ const steps = [
         title: 'Upload Borrower Data',
         description:
             'Submit structured financial data — income, liabilities, repayment history, and behavioral signals via API or CSV.',
-        iconColor: 'text-blue-400',
-        iconBg: 'bg-blue-500/12',
-        glow: 'rgba(59,130,246,0.25)',
+        iconColor: 'text-slate-300',
+        iconBg: 'bg-white/8',
+        glow: 'rgba(255,255,255,0.12)',
     },
     {
         number: '02',
@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
     return (
         <section className="py-28 relative overflow-hidden">
             {/* Glow blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-700/6 blur-[100px] rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-violet-700/5 blur-[100px] rounded-full" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Heading */}
@@ -74,7 +74,7 @@ export default function HowItWorksSection() {
                                 >
                                     <Icon className={`w-8 h-8 ${step.iconColor}`} />
                                     {/* Step number */}
-                                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white text-[10px] font-bold flex items-center justify-center shadow-lg">
+                                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gradient-to-br from-violet-600 to-violet-800 text-white text-[10px] font-bold flex items-center justify-center shadow-lg">
                                         {i + 1}
                                     </span>
                                 </div>

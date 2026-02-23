@@ -7,9 +7,9 @@ const features = [
         description:
             'A dual-model architecture combining the interpretability of logistic regression with the expressivity of tree-based models for robust scoring.',
         span: 'md:col-span-2',
-        iconColor: 'text-blue-400',
-        iconBg: 'bg-blue-500/10',
-        hoverBg: 'rgba(59,130,246,0.08)',
+        iconColor: 'text-slate-300',
+        iconBg: 'bg-white/8',
+        hoverBg: 'rgba(255,255,255,0.06)',
         delay: '0s',
     },
     {
@@ -29,9 +29,9 @@ const features = [
         description:
             'SMOTE oversampling and class-weight adjustments ensure the model remains sensitive to rare default events without overfitting.',
         span: 'md:col-span-1',
-        iconColor: 'text-cyan-400',
-        iconBg: 'bg-cyan-500/10',
-        hoverBg: 'rgba(6,182,212,0.08)',
+        iconColor: 'text-teal-400',
+        iconBg: 'bg-teal-500/10',
+        hoverBg: 'rgba(20,184,166,0.07)',
         delay: '0.3s',
     },
     {
@@ -63,16 +63,16 @@ export default function FeatureHighlightsSection() {
         <section className="w-full py-32 relative overflow-hidden">
             {/* Background accents */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
-                style={{ background: 'rgba(124,58,237,0.07)' }}
+                style={{ background: 'rgba(109,40,217,0.05)' }}
             />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none"
-                style={{ background: 'rgba(59,130,246,0.07)' }}
+                style={{ background: 'rgba(255,255,255,0.025)' }}
             />
 
             <div className="relative z-10 w-full px-12 lg:px-20">
                 {/* Heading */}
                 <div className="text-center mb-20 space-y-4">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
                         Under the Hood
                     </p>
                     <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
