@@ -1,5 +1,3 @@
-# Example: at the end of your .py file
-
 import joblib
 import pandas as pd
 import sys
@@ -9,11 +7,9 @@ from pydantic import BaseModel
 
 app = FastAPI()
 origins = [
-    "http://localhost:3000",           
+    "http://localhost:3000",
     "http://localhost:5173",
     "http://127.0.0.1:3000",
-    "https://your-frontend-domain.com",
-    "https://your-app.vercel.app",
 ]
 
 app.add_middleware(

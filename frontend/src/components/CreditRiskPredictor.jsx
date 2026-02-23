@@ -4,16 +4,19 @@ import React, { useState } from 'react';
 const CreditRiskPredictor = () => {
   const [formData, setFormData] = useState({
     rev_util: '',
-  age: '',
-  late_30_59: '',
-  debt_ratio: '',
-  monthly_inc: '',
-  open_credit: '',
-  late_90: '',
-  real_estate: '',
-  late_60_89: '',
-  dependents: ''
+    age: '',
+    late_30_59: '',
+    debt_ratio: '',
+    monthly_inc: '',
+    open_credit: '',
+    late_90: '',
+    real_estate: '',
+    late_60_89: '',
+    dependents: ''
   });
+
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,17 +26,22 @@ const CreditRiskPredictor = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      const data=api.post('/predict',formData)
-      data.then(m=>{
-        console.log('ho gaya',m)
-      }).catch(
-        console.log('nhi hua')
-      )
-    }catch(err){
-        console.error(err)
+    setLoading(true);
+    try {
+      const response = await api.post('/predict', formData);
+      console.log('API Response:', response.data);
+      setResult({
+        logistic_prob: response.data.logistic.probability,
+        logistic_risk: response.data.logistic.risk,
+        tree_prob: response.data.decision_tree.probability,
+        tree_risk: response.data.decision_tree.risk,
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -110,13 +118,50 @@ const CreditRiskPredictor = () => {
 
             <div className="pt-6 border-t border-white/10 flex justify-center">
               <button 
-                type="submit" 
-                className="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold flex items-center justify-center gap-2"
+                type="submit"
+                disabled={loading}
+                className="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Predict Credit Risk
+                {loading ? 'Predicting...' : 'Predict Credit Risk'}
               </button>
             </div>
           </form>
+
+          {result && (
+            <div className="mt-8 p-6 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm">
+              <h2 className="text-xl font-bold text-white mb-6 text-center">Prediction Result</h2>
+
+              {/* Logistic Regression */}
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide text-center mb-3">Logistic Regression</p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6 mb-6">
+                <div className="flex-1 bg-white/5 rounded-lg p-5 text-center border border-white/10">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Default Probability</p>
+                  <p className="text-3xl font-bold text-violet-400">{(result.logistic_prob * 100).toFixed(2)}%</p>
+                </div>
+                <div className="flex-1 bg-white/5 rounded-lg p-5 text-center border border-white/10">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Risk Category</p>
+                  <p className={`text-3xl font-bold ${result.logistic_risk === 'High' ? 'text-red-400' : result.logistic_risk === 'Medium' ? 'text-yellow-400' : 'text-green-400'}`}>
+                    {result.logistic_risk}
+                  </p>
+                </div>
+              </div>
+
+              {/* Decision Tree */}
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide text-center mb-3">Decision Tree</p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <div className="flex-1 bg-white/5 rounded-lg p-5 text-center border border-white/10">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Default Probability</p>
+                  <p className="text-3xl font-bold text-violet-400">{(result.tree_prob * 100).toFixed(2)}%</p>
+                </div>
+                <div className="flex-1 bg-white/5 rounded-lg p-5 text-center border border-white/10">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Risk Category</p>
+                  <p className={`text-3xl font-bold ${result.tree_risk === 'High' ? 'text-red-400' : result.tree_risk === 'Medium' ? 'text-yellow-400' : 'text-green-400'}`}>
+                    {result.tree_risk}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
         </div>
       </div>
