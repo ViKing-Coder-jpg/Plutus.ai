@@ -1,0 +1,12 @@
+fastapi==0.131.0
+fastapi-cli==0.0.23
+uvicorn==0.41.0
+joblib==1.5.3
+numpy==2.4.2
+pandas==3.0.1
+pydantic==2.12.5
+scikit-learn==1.8.0
+starlette==0.52.1
+python-multipart==0.0.22
+anyio==4.12.1
+httpx==0.28.1
