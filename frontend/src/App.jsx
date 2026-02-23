@@ -1,17 +1,25 @@
-import { Button } from "@/components/ui/button"
-import './App.css'
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import TrustSection from './components/TrustSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import FeatureHighlightsSection from './components/FeatureHighlightsSection';
+import CTASection from './components/CTASection';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Chaliye shuru karte hai. 
-      </h1>
-      <Button size="lg" className="px-8 shadow-lg">
-        Click Me! (Shadcn Button)
-      </Button>
+    <div className="min-h-screen bg-[oklch(0.06_0.02_265)] text-white">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <TrustSection />
+        <HowItWorksSection />
+        <FeatureHighlightsSection />
+        <CTASection />
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
