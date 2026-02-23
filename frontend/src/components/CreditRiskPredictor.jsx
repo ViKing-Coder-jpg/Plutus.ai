@@ -1,17 +1,18 @@
+import { api } from '@/lib/utils';
 import React, { useState } from 'react';
 
 const CreditRiskPredictor = () => {
   const [formData, setFormData] = useState({
-    'RevolvingUtilizationOfUnsecuredLines': '',
-    'age': '',
-    'NumberOfTime30-59DaysPastDueNotWorse': '',
-    'DebtRatio': '',
-    'MonthlyIncome': '',
-    'NumberOfOpenCreditLinesAndLoans': '',
-    'NumberOfTimes90DaysLate': '',
-    'NumberRealEstateLoansOrLines': '',
-    'NumberOfTime60-89DaysPastDueNotWorse': '',
-    'NumberOfDependents': ''
+    rev_util: '',
+  age: '',
+  late_30_59: '',
+  debt_ratio: '',
+  monthly_inc: '',
+  open_credit: '',
+  late_90: '',
+  real_estate: '',
+  late_60_89: '',
+  dependents: ''
   });
 
   const handleChange = (e) => {
@@ -24,20 +25,29 @@ const CreditRiskPredictor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Do not connect backend or add logic, just prevent default
+    try{
+      const data=api.post('/predict',formData)
+      data.then(m=>{
+        console.log('ho gaya',m)
+      }).catch(
+        console.log('nhi hua')
+      )
+    }catch(err){
+        console.error(err)
+    }
   };
 
   const fields = [
-    { name: 'RevolvingUtilizationOfUnsecuredLines', label: 'Revol. Util. of Unsecured Lines', placeholder: 'e.g., 0.766126' },
+    { name: 'rev_util', label: 'Revol. Util. of Unsecured Lines', placeholder: 'e.g., 0.766126' },
     { name: 'age', label: 'Age', placeholder: 'e.g., 45' },
-    { name: 'NumberOfTime30-59DaysPastDueNotWorse', label: 'Times 30-59 Days Past Due', placeholder: 'e.g., 2' },
-    { name: 'DebtRatio', label: 'Debt Ratio', placeholder: 'e.g., 0.802982' },
-    { name: 'MonthlyIncome', label: 'Monthly Income', placeholder: 'e.g., 9120' },
-    { name: 'NumberOfOpenCreditLinesAndLoans', label: 'Open Credit Lines & Loans', placeholder: 'e.g., 13' },
-    { name: 'NumberOfTimes90DaysLate', label: 'Times 90+ Days Late', placeholder: 'e.g., 0' },
-    { name: 'NumberRealEstateLoansOrLines', label: 'Real Estate Loans or Lines', placeholder: 'e.g., 6' },
-    { name: 'NumberOfTime60-89DaysPastDueNotWorse', label: 'Times 60-89 Days Past Due', placeholder: 'e.g., 0' },
-    { name: 'NumberOfDependents', label: 'Number of Dependents', placeholder: 'e.g., 2' }
+    { name: 'late_30_59', label: 'Times 30-59 Days Past Due', placeholder: 'e.g., 2' },
+    { name: 'debt_ratio', label: 'Debt Ratio', placeholder: 'e.g., 0.802982' },
+    { name: 'monthly_inc', label: 'Monthly Income', placeholder: 'e.g., 9120' },
+    { name: 'open_credit', label: 'Open Credit Lines & Loans', placeholder: 'e.g., 13' },
+    { name: 'late_90', label: 'Times 90+ Days Late', placeholder: 'e.g., 0' },
+    { name: 'real_estate', label: 'Real Estate Loans or Lines', placeholder: 'e.g., 6' },
+    { name: 'late_60_89', label: 'Times 60-89 Days Past Due', placeholder: 'e.g., 0' },
+    { name: 'dependents', label: 'Number of Dependents', placeholder: 'e.g., 2' }
   ];
 
   return (
