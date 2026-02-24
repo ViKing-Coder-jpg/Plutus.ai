@@ -6,18 +6,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 app = FastAPI()
+
 origins = [
-    "http://localhost:3000",
+    "https://plutus-ai-snowy.vercel.app",
     "http://localhost:5173",
-    "http://127.0.0.1:3000",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,                    # or ["*"] for development only
-    allow_credentials=True,                   # important if you use cookies / Authorization header
-    allow_methods=["*"],                      # GET, POST, PUT, DELETE, OPTIONS, etc.
-    allow_headers=["*"],                      # Content-Type, Authorization, X-Requested-With, etc.
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class Data(BaseModel):
