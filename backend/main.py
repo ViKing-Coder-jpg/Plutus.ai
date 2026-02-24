@@ -69,6 +69,10 @@ def predict_single_sample(data_dict: Data, high_threshold=0.7, mid_threshold=0.4
 def root():
     return {'Hello world'}
 
+@app.head('/')
+def health_check():
+    return
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python your_script.py '{\"rev_util\":0.85, \"age\":45, ...}'")
