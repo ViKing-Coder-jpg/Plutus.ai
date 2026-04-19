@@ -3,12 +3,10 @@ import { ArrowRight } from 'lucide-react';
 export default function CTASection({ onNavigate }) {
     return (
         <section className="py-28 relative overflow-hidden">
-            {/* Large ambient glow blob */}
             <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-[700px] h-[400px] bg-gradient-to-r from-violet-700/10 via-violet-800/12 to-violet-700/10 blur-[100px] rounded-full" />
             </div>
 
-            {/* Grid pattern */}
             <div
                 className="absolute inset-0 opacity-[0.025]"
                 style={{
@@ -19,12 +17,10 @@ export default function CTASection({ onNavigate }) {
             />
 
             <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-10">
-                {/* Eyebrow */}
                 <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 animate-fade-up">
                     Get Started Today
                 </p>
 
-                {/* Heading */}
                 <h2 className="animate-fade-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
                     Make Lending Decisions{' '}
                     <span className="gradient-text">Backed by AI,</span>{' '}
@@ -35,7 +31,6 @@ export default function CTASection({ onNavigate }) {
                     Integrate Plutus into your lending workflow and replace gut-feel underwriting with explainable, calibrated machine intelligence.
                 </p>
 
-                {/* CTA Button */}
                 <div className="animate-fade-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button
                         id="start-risk-analysis-btn"
@@ -47,7 +42,6 @@ export default function CTASection({ onNavigate }) {
                     </button>
                 </div>
 
-                {/* Trust note */}
                 <p className="animate-fade-up delay-400 text-xs text-slate-600 max-w-sm mx-auto">
                     No credit card required. Works with CSV, JSON, or REST API.
                 </p>

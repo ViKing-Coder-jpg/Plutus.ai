@@ -9,13 +9,11 @@ const navLinks = [
 export default function Footer() {
     return (
         <footer className="relative border-t border-white/6 overflow-hidden">
-            {/* Background subtlety */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-12">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
-                    {/* Brand */}
                     <div className="flex flex-col items-center md:items-start gap-3">
                         <div className="flex items-center gap-2.5">
                             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center shadow-lg shadow-violet-800/20">
@@ -28,7 +26,6 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Nav links */}
                     <nav className="flex items-center gap-6">
                         {navLinks.map((link) => (
                             <a
@@ -41,7 +38,6 @@ export default function Footer() {
                         ))}
                     </nav>
 
-                    {/* GitHub link */}
                     <a
                         href="https://github.com/ViKing-Coder-jpg/Plutus.ai"
                         target="_blank"
@@ -54,7 +50,6 @@ export default function Footer() {
                     </a>
                 </div>
 
-                {/* Bottom bar */}
                 <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
                     <span>© 2026 Plutus. All rights reserved.</span>
                     
