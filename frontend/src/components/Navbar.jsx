@@ -19,7 +19,6 @@ export default function Navbar({ onNavigateHome, onNavigatePredict, currentView 
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex items-center gap-2.5 cursor-pointer" onClick={onNavigateHome}>
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center shadow-lg shadow-violet-800/20">
               <TrendingUp className="w-4 h-4 text-white" />
@@ -27,7 +26,6 @@ export default function Navbar({ onNavigateHome, onNavigatePredict, currentView 
             <span className="text-white font-semibold text-lg tracking-tight">Plutus</span>
           </div>
 
-          {/* Links */}
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={onNavigateHome}
@@ -49,7 +47,6 @@ export default function Navbar({ onNavigateHome, onNavigatePredict, currentView 
             </a>
           </div>
 
-          {/* CTA */}
           <button
             onClick={onNavigatePredict}
             className="btn-primary hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm cursor-pointer border-none"
