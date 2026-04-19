@@ -61,7 +61,6 @@ const features = [
 export default function FeatureHighlightsSection() {
     return (
         <section className="w-full py-32 relative overflow-hidden">
-            {/* Background accents */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
                 style={{ background: 'rgba(109,40,217,0.05)' }}
             />
@@ -70,7 +69,6 @@ export default function FeatureHighlightsSection() {
             />
 
             <div className="relative z-10 w-full px-12 lg:px-20">
-                {/* Heading */}
                 <div className="text-center mb-20 space-y-4">
                     <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
                         Under the Hood
@@ -83,7 +81,6 @@ export default function FeatureHighlightsSection() {
                     </p>
                 </div>
 
-                {/* Feature bento grid */}
                 <div className="grid md:grid-cols-3 gap-5">
                     {features.map(({ icon: Icon, title, description, span, iconColor, iconBg, hoverBg, delay }) => (
                         <div
@@ -111,7 +108,6 @@ export default function FeatureHighlightsSection() {
                                 e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
                             }}
                         >
-                            {/* Hover radial accent */}
                             <div
                                 className="absolute inset-0 rounded-2xl opacity-0 pointer-events-none"
                                 style={{

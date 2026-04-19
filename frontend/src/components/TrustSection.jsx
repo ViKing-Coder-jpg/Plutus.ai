@@ -39,7 +39,6 @@ const cards = [
 export default function TrustSection() {
     return (
         <section className="py-28 relative overflow-hidden">
-            {/* Subtle background grid */}
             <div
                 className="absolute inset-0 opacity-[0.03]"
                 style={{
@@ -50,7 +49,6 @@ export default function TrustSection() {
             />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-                {/* Heading */}
                 <div className="text-center mb-16 space-y-4">
                     <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
                         Why Plutus
@@ -65,7 +63,6 @@ export default function TrustSection() {
                     </p>
                 </div>
 
-                {/* Cards */}
                 <div className="grid md:grid-cols-3 gap-6">
                     {cards.map(({ icon: Icon, title, description, glowColor, iconColor, iconBg, borderHighlight, delay }) => (
                         <div
@@ -96,12 +93,10 @@ export default function TrustSection() {
                                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)';
                                 }}
                             >
-                                {/* Icon */}
                                 <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center`}>
                                     <Icon className={`w-7 h-7 ${iconColor}`} />
                                 </div>
 
-                                {/* Text */}
                                 <div className="space-y-2">
                                     <h3 className="text-white font-semibold text-lg">{title}</h3>
                                     <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
