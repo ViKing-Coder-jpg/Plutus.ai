@@ -1,17 +1,23 @@
 import joblib
+import os
 import pandas as pd
-import sys
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from fastapi.responses import StreamingResponse
+from pydantic import BaseModel, Field
+from typing import Optional, List
+from groq import Groq
 
-app = FastAPI()
+from agent import run_lending_agent
+
+app = FastAPI(title="Plutus.ai API", version="2.0.0")
 
 origins = [
     "https://plutus-ai-snowy.vercel.app",
     "http://localhost:5173",
+    "http://localhost:5174",
     "http://127.0.0.1:3000",
-    "https://plutus-ai-snowy.vercel.app"
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
@@ -23,18 +29,28 @@ app.add_middleware(
 )
 
 class Data(BaseModel):
-    rev_util: float         # Revolving Utilization
-    age: int                # Age
-    late_30_59: int         # 30-59 days late
-    debt_ratio: float       # Debt Ratio
-    monthly_inc: float      # Monthly Income
-    open_credit: int        # Open Credit Lines
-    late_90: int            # 90+ days late
-    real_estate: int        # Real Estate Loans
-    late_60_89: int         # 60-89 days late
-    dependents: int
+    rev_util: float = Field(..., description="Revolving Utilization (0-1)")
+    age: int = Field(..., description="Borrower Age")
+    late_30_59: int = Field(..., description="Times 30-59 days past due")
+    debt_ratio: float = Field(..., description="Debt Ratio")
+    monthly_inc: float = Field(..., description="Monthly Income")
+    open_credit: int = Field(..., description="Open Credit Lines")
+    late_90: int = Field(..., description="Times 90+ days past due")
+    real_estate: int = Field(..., description="Real Estate Loans")
+    late_60_89: int = Field(..., description="Times 60-89 days past due")
+    dependents: int = Field(..., description="Number of Dependents")
 
-model_logistic = joblib.load('logistic_model.pkl')
+class ChatMessage(BaseModel):
+    role: str       
+    content: str
+
+class ChatRequest(BaseModel):
+    message: str                        
+    borrower_data: dict = {}           
+    ml_results: dict = {}               
+    report: dict = {}                   
+    chat_history: List[ChatMessage] = []  
+
 model_tree = joblib.load('decision_tree_model.pkl')
 scaler=joblib.load('scaler.pkl')
 
