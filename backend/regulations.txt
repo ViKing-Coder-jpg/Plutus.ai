@@ -1,0 +1,41 @@
+# Lending Regulations and Guidelines Knowledge Base
+# Source: Plutus.ai Reference Document for RAG
+
+## 1. Equal Credit Opportunity Act (ECOA)
+The Equal Credit Opportunity Act prohibits lenders from discriminating against applicants on the basis of race, color, religion, national origin, sex, marital status, age, or because an applicant receives public assistance. Lenders must evaluate all applicants on the same objective financial criteria. Age may be considered only if it is used in a statistically sound credit scoring system, and even then, applicants over 40 must not be penalized. Lenders must provide adverse action notices explaining why credit was denied.
+
+## 2. Fair Credit Reporting Act (FCRA)
+The Fair Credit Reporting Act regulates how consumer credit information is collected, accessed, and used. Lenders must obtain consumer consent before accessing credit reports. If adverse action is taken based on credit report information, lenders must provide the consumer with the name and contact information of the credit reporting agency used. Consumers have the right to dispute inaccurate information in their credit files. Lenders must maintain reasonable procedures to ensure accuracy of data.
+
+## 3. Debt-to-Income (DTI) Guidelines
+Conventional lending standards recommend that a borrower's total monthly debt obligations should not exceed 43% of gross monthly income (a DTI ratio of 0.43). Front-end DTI (housing costs only) should ideally be below 28%. Borrowers with DTI above 50% are generally considered high risk and may be declined for conventional loans. Lenders may make exceptions for borrowers with strong compensating factors such as significant cash reserves, excellent credit history, or low loan-to-value ratios.
+
+## 4. Delinquency and Default Risk Standards
+A single instance of a 30-59 day late payment within the past 2 years is generally treated as a minor negative factor. Multiple instances of 30-59 day delinquencies indicate a pattern of financial stress. A 60-89 day late payment is a significant negative indicator suggesting serious financial difficulties. Any 90-day or greater delinquency is a major red flag and is often grounds for loan denial under standard underwriting guidelines. More than 2 late payment instances in any category within the past year is considered a pattern of delinquency.
+
+## 5. Revolving Credit Utilization Guidelines
+Credit utilization (the ratio of revolving credit balances to credit limits) is a key factor in credit scoring. Utilization above 30% begins to negatively impact credit scores. Utilization above 70% is considered very high risk and indicates the borrower is heavily reliant on revolving credit. Utilization above 90% is a strong indicator of financial distress. Lenders should note that high utilization combined with income instability creates compounded risk.
+
+## 6. Responsible Lending Principles (RLP)
+Responsible lending requires that lenders assess affordability before approving credit. Lenders must ensure that loan repayments are sustainable relative to the borrower's verified income. Lenders should consider the borrower's existing obligations, dependents, and living costs when assessing repayment capacity. Predatory lending practices such as approving loans known to be unaffordable are prohibited. Lenders must provide clear and accurate information about loan terms, interest rates, and total repayment obligations.
+
+## 7. Real Estate Loan Concentration Risk
+Borrowers with multiple real estate loans (3 or more) face concentration risk and increased exposure to property market downturns. Guidelines recommend that total real estate loan obligations should not exceed 45% of net income. Lenders should verify that all real estate loans are performing (not delinquent) before approving additional credit. High real estate loan counts combined with high debt ratios indicate a leveraged borrower profile.
+
+## 8. Income Verification and Minimum Income Thresholds
+Lenders must verify income through pay stubs, tax returns, or bank statements. Self-employed borrowers require two years of tax returns. Monthly income below $2,000 is generally considered insufficient to support most unsecured personal loans above $5,000. Income stability (consistent employment for 2+ years) is a positive compensating factor. Irregular or declining income should be treated as a risk factor even if current income appears sufficient.
+
+## 9. Number of Dependents and Financial Obligations
+Each dependent reduces the borrower's effective disposable income. Lenders should factor in estimated monthly child care, education, or support costs per dependent when assessing affordability. Borrowers with 3 or more dependents on a low or moderate income are at elevated risk of payment default during financial shocks. Dependents themselves are not grounds for denial under ECOA, but their financial impact on affordability is a legitimate lending consideration.
+
+## 10. Credit Risk Classification Thresholds
+Low Risk: Probability of default below 20%. Borrower demonstrates strong repayment history, stable income, and low utilization. Standard loan terms applicable.
+Medium Risk: Probability of default between 20% and 50%. Borrower shows some warning signs. Lender should consider reduced loan amounts, higher interest rates, or additional collateral requirements.
+High Risk: Probability of default above 50%. Significant delinquency history, high utilization, or income insufficiency present. Loan denial recommended unless strong compensating factors exist.
+Very High Risk: Probability of default above 70%. Multiple compounding risk factors. Loan should be declined. Borrower should be referred to credit counseling services.
+
+## 11. Mitigation Strategies for Borderline Applicants
+For medium-risk borrowers, lenders may reduce loan amounts to lower the debt burden. Requiring a co-signer or guarantor with strong credit can offset individual risk. Secured loan structures (backed by collateral) reduce lender exposure. Shorter loan tenures reduce cumulative default risk. Lenders may also offer credit improvement plans and invite borrowers to reapply after 6-12 months of demonstrated financial improvement.
+
+## 12. Ethical AI and Bias in Credit Decisions
+AI-driven credit scoring systems must be regularly audited for disparate impact across protected classes. Models trained on historical data may perpetuate systemic biases present in past lending decisions. Lenders using ML models must be able to explain adverse decisions in plain language to applicants. Solely automated decisions affecting consumers must comply with GDPR Article 22 (in applicable jurisdictions) and equivalent domestic regulations. Human review should be available for all AI-generated adverse lending decisions.
